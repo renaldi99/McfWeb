@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Login Page";
+}
+
+<div class="loading-screen">
+    <div class="spinner"></div>
+</div>
+<div class="login-container">
+    <h2 class="text-center">Login</h2>
+    <form>
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter your username">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+        </div>
+        <button type="submit" class="btn btn-primary w-100" id="btn-login">Login</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="~/js/login-portal.js"></script>
+}
