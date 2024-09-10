@@ -1,5 +1,13 @@
 ﻿$(document).ready(function () {
-    console.log("masuk");
+    let userData = JSON.parse(localStorage.getItem("user"));
+
+
+    $(document).on("click", "#add_bpkb", function (e) {
+        e.preventDefault();
+        window.location.href = "/Bpkb/AddBpkb";
+
+    })
+
     $("#myTable").DataTable({
         scrollx: true,
         searching: true,

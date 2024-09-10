@@ -14,10 +14,12 @@
     <None Remove="Views\Login\" />
     <None Remove="Views\Bpkb\" />
     <None Remove="Utility\" />
+    <None Remove="Views\Storage\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Login\" />
     <Folder Include="Views\Bpkb\" />
     <Folder Include="Utility\" />
+    <Folder Include="Views\Storage\" />
   </ItemGroup>
 </Project>

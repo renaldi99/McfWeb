@@ -15,6 +15,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        bool isUserLoggedIn = HttpContext.Session.GetString("username") == null;
+        ViewBag.IsUserLoggedIn = isUserLoggedIn;
         return View();
     }
 

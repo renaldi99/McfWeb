@@ -2,6 +2,70 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+
+    var user_id = ViewData["user_id"];
 }
 
+<input id="user_id" style="display: none;" value=@user_id />
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="mb-3">
+                <label class="form-label">Agreement Number</label>
+                <input id="agreement_number" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Branch Id</label>
+                <input id="branch_id" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">No. BPKB</label>
+                <input id="bpkb_no" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tanggal BPKB In</label>
+                <input id="bpkb_date_in" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tanggal BPKB</label>
+                <input id="bpkb_date" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">No. Faktur</label>
+                <input id="faktur_no" class="form-control" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="mb-3">
+                <label class="form-label">Tanggal Faktur</label>
+                <input id="faktur_date" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">No Polisi</label>
+                <input id="police_no" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Lokasi Penyimpanan</label>
+                <select id="location_id" class="form-select" aria-label="Default select example">
+                    <option selected value="">-- Select --</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="row p-2">
+                <button id="btn_save" type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row p-2">
+                <button id="btn_cancel" type="button" class="btn btn-warning">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+@section Scripts {
+    <script src="~/js/add-bpkb.js"></script>
+}

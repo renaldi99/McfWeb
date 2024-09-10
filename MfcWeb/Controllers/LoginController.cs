@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using MfcWeb.Models;
 using MfcWeb.Utility;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -22,7 +24,6 @@ namespace MfcWeb
         {
             if (ModelState.IsValid)
             {
-                // Handle the data
                 IDictionary<string, object> req = new Dictionary<string, object>
                 {
                     { "user_name", entity.username },
@@ -34,10 +35,14 @@ namespace MfcWeb
 
                 if (resStatusCode == 200)
                 {
-                    return Json(objcontent);
+                    HttpContext.Session.SetString("username", (string)objcontent.data.user_name);
+                    HttpContext.Session.SetString("password", (string)objcontent.data.password);
+                    HttpContext.Session.SetInt32("user_id", (int)objcontent.data.user_id);
+
+                    return Json("success");
                 }
 
-                return BadRequest("Invalid login attempt");
+                return Json("fail");
             }
 
             return View();

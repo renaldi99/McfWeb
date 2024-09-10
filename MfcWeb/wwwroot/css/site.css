@@ -71,3 +71,9 @@ body {
         transform: rotate(360deg);
     }
 }
+
+#msg-login {
+    color: red;
+    font-size: 12px;
+    display: none;
+}

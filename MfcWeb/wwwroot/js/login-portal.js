@@ -18,16 +18,20 @@
             contentType: 'application/json',
             data: JSON.stringify(model),
             success: function (response) {
+                $(".loading-screen").css("display", "none");
                 console.log(response);
-                if (response.is_success) {
-                    $(".loading-screen").css("display", "none");
 
+                if (response == "success") {
                     window.location.href = "/Bpkb/ListBpkb";
+                } else {
+                    $("#msg-login").css("display", "block");
                 }
             },
             error: function (request, status, error) {
                 $(".loading-screen").css("display", "none");
-                alert(request.responseText);
+                $("#msg-login").css("display", "block");
+
+                console.log(request.responseText);
             }
         })
     })
