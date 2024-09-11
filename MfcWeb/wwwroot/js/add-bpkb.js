@@ -34,8 +34,9 @@
 
     $(document).on("click", "#btn_save", function (e) {
         e.preventDefault();
+        $(".loading-screen").css("display", "grid");
 
-        let agreement_number = $("#agreement_number").val();
+        //let agreement_number = $("#agreement_number").val();
         let branch_id = $("#branch_id").val();
         let bpkb_no = $("#bpkb_no").val();
         let bpkb_date_in = $("#bpkb_date_in").val();
@@ -47,7 +48,7 @@
         let user_id = $("#user_id").val();
 
         var databpkb = {
-            agreement_number,
+            //agreement_number,
             branch_id,
             bpkb_no,
             bpkb_date_in,
@@ -70,7 +71,9 @@
                 console.log(response);
 
                 if (response == "success") {
-                    window.location.href = "/Bpkb/ListBpkb";
+                    swal("Success!", "Add Bpkb Success", "success").then(() => {
+                        window.location.href = "/Bpkb/ListBpkb";
+                    });
                 }
             },
             error: function (request, status, error) {

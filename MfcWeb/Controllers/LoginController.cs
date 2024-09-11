@@ -47,5 +47,30 @@ namespace MfcWeb
 
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Register([FromBody] UserLoginModel entity)
+        {
+            if (ModelState.IsValid)
+            {
+                IDictionary<string, object> req = new Dictionary<string, object>
+                {
+                    { "user_name", entity.username },
+                    { "password", entity.password },
+                };
+                var response = RestUtils.CallPost(Constans.WEB_URI + "/User/InsertNewUser", JsonConvert.SerializeObject(req), "application/json", 10);
+                dynamic objcontent = JsonConvert.DeserializeObject<ExpandoObject>(response.ToString());
+                int resStatusCode = (int)objcontent?.status_code;
+
+                if (resStatusCode == 200)
+                {
+                    return Json("success");
+                }
+
+                return Json("fail");
+            }
+
+            return View();
+        }
     }
 }

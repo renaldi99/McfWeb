@@ -22,7 +22,6 @@ namespace MfcWeb.Models
 
     public class InputBpkbModel
     {
-        public int agreement_number { get; set; }
         public string? branch_id { get; set; }
         public string? bpkb_no { get; set; }
         public string? bpkb_date_in { get; set; }

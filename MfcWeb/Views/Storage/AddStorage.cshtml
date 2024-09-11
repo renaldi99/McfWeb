@@ -4,6 +4,11 @@
 @{
 }
 
+
+<div class="loading-screen">
+    <div class="spinner"></div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col">
@@ -16,7 +21,7 @@
     <div class="row">
         <div class="col">
             <div class="row p-2">
-                <button id="btn_save_loc" type="submit" class="btn btn-primary">Save</button>
+                <button id="btn_save_loc" type="button" class="btn btn-primary">Save</button>
             </div>
         </div>
         <div class="col">
@@ -26,3 +31,8 @@
         </div>
     </div>
 </div>
+
+
+@section Scripts {
+    <script src="~/js/add-location.js"></script>
+}
