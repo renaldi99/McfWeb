@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var getPageName = ViewContext.RouteData.Values["controller"].ToString();
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,7 +15,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/eonasdan-bootstrap-datetimepicker/4.17.42/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 </head>
 <body>
-    @await Html.PartialAsync("_Navbar")
+    @await Html.PartialAsync("_Navbar", (bool)(ViewBag.IsUserLoggedIn ?? false))
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

@@ -72,5 +72,11 @@ namespace MfcWeb
 
             return View();
         }
+
+        public ActionResult Logout()
+        {
+
+            return View();
+        }
     }
 }

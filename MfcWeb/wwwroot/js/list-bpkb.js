@@ -38,6 +38,19 @@
             { data: "created_on", autoWidth: true },
             { data: "last_updated_by", autoWidth: true },
             { data: "last_updated_on", autoWidth: true },
+            {
+                data: "agreement_number",
+                autoWidth: true,
+                render: function (data, type, row) {
+                    return `<button class='btn btn-warning' id='update-bpkb' data-agreement=${data}>Edit Data</button>`
+                }
+            }
         ]
     })
+
+    $(document).on('click', '#update-bpkb', function (e) {
+        e.preventDefault();
+        var agreementNumber = $(this).data('agreement');
+        window.location.href = `/Bpkb/UpdateBpkb?agreement_number=${agreementNumber}`;
+    });
 })

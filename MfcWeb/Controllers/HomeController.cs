@@ -15,13 +15,28 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        bool isUserLoggedIn = HttpContext.Session.GetString("username") == null;
+        var username = HttpContext.Session.GetString("username");
+        bool isUserLoggedIn = username != null;
         ViewBag.IsUserLoggedIn = isUserLoggedIn;
+
+        if (!isUserLoggedIn)
+        {
+            return RedirectToAction("Login", "Login");
+        }
+
         return View();
     }
 
     public IActionResult Privacy()
     {
+        var username = HttpContext.Session.GetString("username");
+        ViewData["username"] = username;
+
+        if (username == null)
+        {
+            return RedirectToAction("Login", "Login");
+        }
+
         return View();
     }
 
